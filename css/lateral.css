@@ -12,6 +12,7 @@ ul, li , a{
     --sizeboxmenu: 55px;
     --expandedsizeboxmenu: 250px;
     --transitionmenu: all 200ms ease-out;
+    --fontweb: clamp(1.2rem, 1.5vw, 2.8rem);
 }
 body{
     margin:0;
@@ -467,3 +468,38 @@ body{
         95%{transform: rotateX(17deg) translate(50% , -50%);}
       }
 }
+
+/* SOBRE MI */
+
+.about-me-main-section{
+    width: 100%;
+    height: 100vh;
+    background-color: red;
+    display: grid;
+    align-items: center;
+    align-self: center;
+    grid-template-columns: 40% 1fr;
+}
+    .about-me-main-section .about-me-description{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        border-left: 20px solid white;
+        width: 90%;
+        margin: auto;
+        padding: 0 30px;
+    }
+    .about-me-main-section .about-me-description h2{
+        font-size: 3rem;
+        color: white;
+        margin: .5rem;
+        text-transform: uppercase;
+    }
+    .about-me-main-section .about-me-description p{
+        font-size: var(--fontweb);
+        color: white;
+        text-align: justify;
+        margin: .5rem
+
+    }

@@ -107,7 +107,7 @@ const animationRamdom = (elements, interval) => {
                     if (sw) {
                         ramdom.classList.add("animation");
                         sw = false
-                    }else{
+                    } else {
                         ramdom.classList.remove("animation");
                         sw = true
                     }
