@@ -13,12 +13,13 @@ ul, li , a{
     --expandedsizeboxmenu: 250px;
     --transitionmenu: all 200ms ease-out;
     --fontweb: clamp(1.2rem, 1.5vw, 2.8rem);
+    --maincolor: rgba(40, 35, 35, 1.00);
 }
 body{
     margin:0;
     padding:0;
     padding-top: var(--sizeboxmenu);
-    background-color: rgba(40, 35, 35, 1.00)
+    background-color: var(--maincolor);
 }
 @media screen and (max-width: 1081px){
 .menu-lateral{
@@ -474,7 +475,6 @@ body{
 .about-me-main-section{
     width: 100%;
     height: 100vh;
-    background-color: red;
     display: grid;
     align-items: center;
     align-self: center;
@@ -501,5 +501,68 @@ body{
         color: white;
         text-align: justify;
         margin: .5rem
-
     }
+
+/* Progreso */
+
+.my-skills-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+    .skills-tittle{
+        grid-column: 1 / 4;
+        font-size: 3rem;
+        color: white;
+        margin: .5rem;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+.circulo-progreso{
+    width: 12rem;
+    height: 12rem;
+    margin: auto;
+    border-radius: 50%;
+    background: linear-gradient(
+        0deg,
+        white 50%,
+        gray 50%
+    );
+    position: relative;
+    transform: rotate(90deg);
+}
+.circulo-progreso::before{
+    content: "HTML";
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    top: 0;
+    right: 0;
+    background: var(--maincolor) content-box; 
+    border-radius: 50%;
+    transform: rotate(-90deg);
+    padding: .5em;
+    box-sizing: border-box;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 7.5rem;
+    color: white
+}
+.circulo-progreso::after{
+    content: "70%";
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    background: linear-gradient(
+        transparent 50%,
+        var(--maincolor) 50%
+    );
+    text-align: center;
+    line-height: 14rem;
+    font-size: 1.5rem;
+    transform: scale(1.01) rotate(-90deg);
+    color: white;
+}
