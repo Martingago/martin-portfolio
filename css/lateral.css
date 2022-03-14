@@ -507,7 +507,10 @@ body{
 
 .my-skills-section{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 225px 225px 225px;
+    overflow: hidden;
+    align-self: center;
+    margin: auto;
 }
     .skills-tittle{
         grid-column: 1 / 4;
@@ -529,10 +532,8 @@ body{
         gray 50%
     );
     position: relative;
-    transform: rotate(90deg);
 }
 .circulo-progreso::before{
-    content: "HTML";
     position: absolute;
     width: 12rem;
     height: 12rem;
@@ -540,7 +541,6 @@ body{
     right: 0;
     background: var(--maincolor) content-box; 
     border-radius: 50%;
-    transform: rotate(-90deg);
     padding: .5em;
     box-sizing: border-box;
     font-size: 2rem;
@@ -563,6 +563,56 @@ body{
     text-align: center;
     line-height: 14rem;
     font-size: 1.5rem;
-    transform: scale(1.01) rotate(-90deg);
     color: white;
 }
+
+    .html-habilities{
+        background: linear-gradient(
+        0deg,
+        red 50%,
+        lightgray 50%
+    );
+    transform: rotate(108deg);
+    }
+        .html-habilities:before{
+            content: "HTML";
+            transform: rotate(-108deg);
+        }
+        .html-habilities:after{
+            content: "60%";
+            transform: rotate(-108deg) scale(1.1);
+        }
+
+    .css-habilities{
+        background: linear-gradient(
+        0deg,
+        rgb(19, 113, 235) 50%,
+        lightgray 50%
+    );
+    transform: rotate(144deg);
+    }
+        .css-habilities:before{
+            content: "CSS";
+            transform: rotate(-144deg);
+        }
+        .css-habilities:after{
+            content: "80%";
+            transform: rotate(-144deg) scale(1.1)
+        }
+
+    .js-habilities{
+        background: linear-gradient(
+        0deg,
+        orange 50%,
+        lightgray 50%
+    );
+        transform: rotate(54deg);
+    }
+        .js-habilities:before{
+            content: "JS";
+            transform: rotate(-54deg);
+        }
+        .js-habilities:after{
+            content: "30%";
+            transform: rotate(-54deg) scale(1.1);
+        }
