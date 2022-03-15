@@ -565,6 +565,7 @@ body{
     font-size: 1.5rem;
     color: white;
 }
+/* HTML HABILITIES */
 
     .html-habilities{
         background: linear-gradient(
@@ -573,46 +574,90 @@ body{
         lightgray 50%
     );
     transform: rotate(108deg);
+    animation: htmlSkills 2s linear;
     }
+    @keyframes htmlSkills {
+        0%{transform: rotate(0deg);}
+        100%{transform: rotate(108deg);}  
+    }
+
         .html-habilities:before{
             content: "HTML";
             transform: rotate(-108deg);
+            animation: htmlSkillsB 2s linear;
         }
+        @keyframes htmlSkillsB {
+            0%{transform: rotate(0deg);}
+            100%{transform: rotate(-108deg);}  
+        }
+
         .html-habilities:after{
             content: "60%";
             transform: rotate(-108deg) scale(1.1);
+            animation: htmlSkillsA 2s linear;
         }
+        @keyframes htmlSkillsA {
+            0%{transform: rotate(0deg) scale(1.1);}
+            100%{transform: rotate(-108deg) scale(1.1);}  
+        }
+ /* CSS HABILITIES */
 
     .css-habilities{
-        background: linear-gradient(
-        0deg,
-        rgb(19, 113, 235) 50%,
-        lightgray 50%
-    );
-    transform: rotate(144deg);
+        background: linear-gradient(0deg,rgb(19, 113, 235) 50%,lightgray 50%);
+        transform: rotate(144deg);
+        animation: cssSkills 2s linear;
     }
+    @keyframes cssSkills {
+        0%{transform: rotate(0deg);}
+        100%{transform: rotate(144deg);}  
+    }
+
         .css-habilities:before{
             content: "CSS";
             transform: rotate(-144deg);
+            animation: cssSkillsB 2s linear;
         }
+        @keyframes cssSkillsB {
+            0%{transform: rotate(0deg);}
+            100%{transform: rotate(-144deg);}  
+        }
+        
         .css-habilities:after{
             content: "80%";
-            transform: rotate(-144deg) scale(1.1)
+            transform: rotate(-144deg) scale(1.1);
+            animation: cssSkillsA 2s linear;
+        }
+        @keyframes cssSkillsA {
+            0%{transform: rotate(0deg) scale(1.1);}
+            100%{transform: rotate(-144deg) scale(1.1);}  
         }
 
+/* JS HABILITIES */
+
     .js-habilities{
-        background: linear-gradient(
-        0deg,
-        orange 50%,
-        lightgray 50%
-    );
+        background: linear-gradient( 0deg,orange 50%,lightgray 50%);
         transform: rotate(54deg);
+        animation: jsSkills 2s linear;
+    }
+    @keyframes jsSkills {
+        0%{transform: rotate(0deg);}
+        100%{transform: rotate(54deg);}  
     }
         .js-habilities:before{
             content: "JS";
             transform: rotate(-54deg);
+            animation: jsSkillsB 2s linear;
+        }
+        @keyframes jsSkillsB {
+            0%{transform: rotate(0deg);}
+            100%{transform: rotate(-54deg);}  
         }
         .js-habilities:after{
             content: "30%";
             transform: rotate(-54deg) scale(1.1);
+            animation: jsSkillsA 2s linear;
+        }
+        @keyframes jsSkillsA {
+            0%{transform: rotate(0deg) scale(1.1);}
+            100%{transform: rotate(-54deg) scale(1.1);}  
         }
