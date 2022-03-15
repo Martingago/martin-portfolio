@@ -480,15 +480,28 @@ body{
     align-self: center;
     grid-template-columns: 40% 1fr;
 }
+@media screen and (max-width:1350px){
+    .about-me-main-section{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .about-me-description{
+        width: 90%;
+        max-width: 600px;
+        margin: 0 auto !important;
+    }
+}
     .about-me-main-section .about-me-description{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: left;
         border-left: 20px solid white;
-        width: 90%;
-        margin: auto;
+        width: 100%;
+        margin-left: 40px;
         padding: 0 30px;
+        
     }
     .about-me-main-section .about-me-description h2{
         font-size: 3rem;
@@ -507,7 +520,7 @@ body{
 
 .my-skills-section{
     display: grid;
-    grid-template-columns: 225px 225px 225px;
+    grid-template-columns: 200px 200px 200px;
     overflow: hidden;
     align-self: center;
     margin: auto;
@@ -522,28 +535,24 @@ body{
     }
 
 .circulo-progreso{
-    width: 12rem;
-    height: 12rem;
+    width: 180px;
+    height: 180px;
     margin: auto;
     border-radius: 50%;
-    background: linear-gradient(
-        0deg,
-        white 50%,
-        gray 50%
-    );
+    background: linear-gradient(0deg,white 50%,gray 50%);
     position: relative;
 }
 .circulo-progreso::before{
     position: absolute;
-    width: 12rem;
-    height: 12rem;
+    width: 180px;
+    height: 180px;
     top: 0;
     right: 0;
     background: var(--maincolor) content-box; 
     border-radius: 50%;
     padding: .5em;
     box-sizing: border-box;
-    font-size: 2rem;
+    font-size: 1.7rem;
     text-align: center;
     line-height: 7.5rem;
     color: white
@@ -551,36 +560,28 @@ body{
 .circulo-progreso::after{
     content: "70%";
     position: absolute;
-    width: 12rem;
-    height: 12rem;
+    width: 180px;
+    height: 180px;
     top: 0;
     right: 0;
     border-radius: 50%;
-    background: linear-gradient(
-        transparent 50%,
-        var(--maincolor) 50%
-    );
+    background: linear-gradient(transparent 50%,var(--maincolor) 50%);
     text-align: center;
     line-height: 14rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: white;
 }
 /* HTML HABILITIES */
 
     .html-habilities{
-        background: linear-gradient(
-        0deg,
-        red 50%,
-        lightgray 50%
-    );
-    transform: rotate(108deg);
-    animation: htmlSkills 2s linear;
+        background: linear-gradient(0deg,red 50%,lightgray 50%);
+        transform: rotate(108deg);
+        animation: htmlSkills 2s linear;
     }
     @keyframes htmlSkills {
         0%{transform: rotate(0deg);}
         100%{transform: rotate(108deg);}  
     }
-
         .html-habilities:before{
             content: "HTML";
             transform: rotate(-108deg);
