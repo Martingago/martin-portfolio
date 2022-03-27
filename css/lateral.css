@@ -532,23 +532,54 @@ body{
     position: absolute;
     top:0;
     left: 0;
-    /* animation:  movtelonizquierda 3s linear; */
-}
-@keyframes movtelonizquierda {
-    0%{left:0}
-    100%{left: -25%}  
+    /* animation:  cerrartelonizquierda 3s linear; */
 }
 .telon-derecha{
     width: 100%;
     position: absolute;
     top: 0;
-    left: 0%;
-    /* animation: movtelonderecha 3s linear; */
+    left: 0;
+    /* animation: cerrartelonderecha 3s linear; */
 }
+
+.abrir-telon-izquierda{
+    width: 100%;
+    position: absolute;
+    top:0;
+    left: -25%;
+    /* animation: movtelonizquierda 3s linear;  */
+}
+.abrir-telon-derecha{
+    width: 100%;
+    position: absolute;
+    top:0;
+    left: 15%;
+    /* animation: movtelonderecha 3s linear */
+}
+
+
+/* abrir telones */
 @keyframes movtelonderecha {
     0%{left: 0%;}
     100%{left: 15%}  
 }
+@keyframes movtelonizquierda {
+    0%{left:0}
+    100%{left: -25%}  
+}
+
+/* cerrar telones */
+@keyframes cerrartelonderecha {
+    0%{left:15%;}
+    100%{left: 0%;} 
+}
+@keyframes cerrartelonizquierda {
+    0%{left:-25%;}
+    100%{left: 0%;}   
+}
+
+
+
 
 /* Telon launcher */
 
@@ -556,6 +587,8 @@ body{
     position: absolute;
     right: 0;
     top: -40px;
+    background-color: transparent;
+    border: none;
     animation: launcheranimation 3s infinite;
 }
 
@@ -564,14 +597,19 @@ body{
     60%{transform: rotateX(-15deg) rotateZ(-2deg);}
     100%{transform: rotateX(0deg) rotateY(0deg);}    
 }
-
+@keyframes launchercloseanimation {
+    20%{transform: rotateX(20deg) rotateZ(-2deg);}
+    30%{transform: rotateX(0deg) rotateZ(0deg);}
+    40%{transform: translateY(40px);}
+    70%{transform: translateY(-10px);}
+    100%{transform: translateY(0);}
+}
 @keyframes launcherclickanimation {
     10%{transform: rotateX(20deg) rotateZ(-2deg);}
     20%{transform: rotateX(0deg) rotateZ(0deg);}
     30%{transform: translateY(40px);}
     100% {transform: translateY(-100%);}  
 }
-
 @keyframes launchertimeoutanimation {
     0% {transform: translateY(-100%);}
     30%{transform: translateY(30px) rotateZ(4deg);}
