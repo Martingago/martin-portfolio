@@ -124,24 +124,16 @@ animationRamdom(ramdom4, 3500);
 
 
 // TELON ABOUT ME   
-
 const cuerdaTelon = document.querySelector(".telon-launcher");
 const telonIzquierda = document.querySelector(".telon-izquierda");
 const telonDerecha = document.querySelector(".telon-derecha");
 
+    // SE ABRE EL TELON
 // Animacion de recogerse la cuerda (sólo al abrir el telón)
 const recogerCuerda = () => {
     cuerdaTelon.style.animation = `launcherclickanimation 3s linear`;
     setTimeout(() => {
         cuerdaTelon.style.transform = `translateY(-100%)`
-    }, 3000);
-}
-const abrirTelon = () => {
-    setTimeout(() => {
-        telonIzquierda.classList.add("abrir-telon-izquierda");
-        telonIzquierda.style.animation = `movtelonizquierda 3s linear`;
-        telonDerecha.classList.add("abrir-telon-derecha");
-        telonDerecha.style.animation = `movtelonderecha 3s linear`;
     }, 3000);
 }
 //La cuerda cae desde arriba (sólo al abrir el telon)
@@ -151,10 +143,22 @@ const apareceCuerda = () => {
         cuerdaTelon.style.transform = `translateY(0)`;
     }, 7000);
 }
-//SE CIERRA EL TELON
+// Animacion de abrir el telon
+const abrirTelon = () => {
+    setTimeout(() => {
+        telonIzquierda.classList.add("abrir-telon-izquierda");
+        telonIzquierda.style.animation = `movtelonizquierda 3s linear`;
+        telonDerecha.classList.add("abrir-telon-derecha");
+        telonDerecha.style.animation = `movtelonderecha 3s linear`;
+    }, 3000);
+}
+
+    //SE CIERRA EL TELON
+// Animacion tirar de la cuerda (al cerrar telon)
 const cerrarTelonCuerda = () => {
     cuerdaTelon.style.animation = `launchercloseanimation 3s linear`;
 }
+// Animacion cerrar el telon
 const cerrarTelon = () => {
     setTimeout(() => {
         telonIzquierda.classList.remove("abrir-telon-izquierda");
@@ -164,29 +168,29 @@ const cerrarTelon = () => {
     }, 3000);
 }
 // Animacion infinita de la cuerda
-const cuerdaInfinita = () => {
+const cuerdaInfinita = (temporizador) => {
     setTimeout(() => {
         cuerdaTelon.style.animation = `launcheranimation 3s infinite`;
-    }, 11000)
+    }, temporizador)
 }
 //habilitamos el click de la cuerda
-const habilitarClick = () => {
+const habilitarClick = (temporizador) => {
     setTimeout(() => {
         cuerdaTelon.disabled = false
-    }, 11000);
+    }, temporizador);
 }
 // Capturamos el click de la cuerda y ejecutamos todas las animaciones
 var telonero = 1;
-console.log(telonero)
 cuerdaTelon.addEventListener(
     "click",
     () => {
         if (telonero == 0) {
             cuerdaTelon.disabled = true
             console.log("el telon se cierra")
-            cerrarTelon();
             cerrarTelonCuerda();
-            habilitarClick();
+            cerrarTelon();
+            cuerdaInfinita(7000);
+            habilitarClick(7500);
             telonero++
         } else {
             cuerdaTelon.disabled = true
@@ -194,9 +198,9 @@ cuerdaTelon.addEventListener(
             recogerCuerda();
             abrirTelon();
             apareceCuerda();
-            habilitarClick();
+            cuerdaInfinita(10500);
+            habilitarClick(11000);
             telonero--
         }
-        cuerdaInfinita();
     }
 );
