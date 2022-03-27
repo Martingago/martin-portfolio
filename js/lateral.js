@@ -122,3 +122,49 @@ animationRamdom(ramdom2, 9500);
 animationRamdom(ramdom3, 7000);
 animationRamdom(ramdom4, 3500);
 
+
+// TELON ABOUT ME   
+
+const cuerdaTelon = document.querySelector(".telon-launcher");
+const telonIzquierda = document.querySelector(".telon-izquierda");
+const telonDerecha = document.querySelector(".telon-derecha")
+
+// Animacion de recogerse la cuerda
+const recogerCuerda = () => {
+    cuerdaTelon.style.animation = `launcherclickanimation 3s linear`;
+    setTimeout(() => {
+        cuerdaTelon.style.transform = `translateY(-100%)`
+    }, 3000);
+}
+//La cuerda vuelve aparecer
+const apareceCuerda = () => {
+    setTimeout(() => {
+        cuerdaTelon.style.animation = `launchertimeoutanimation 3s linear`;
+        cuerdaTelon.style.transform = `translateY(0)`;
+    }, 10000);
+}
+// Animacion infinita de la cuerda
+const cuerdaInfinita = () => {
+    setTimeout(() => {
+        cuerdaTelon.style.animation = `launcheranimation 3s infinite`;
+    }, 13000)
+}
+//Animacion de recogerse los telones
+const animacionTelones = (telon, animacion, separacion) => {
+    setInterval(() => {
+        telon.style.animation = `${animacion} 3s linear`;
+        telon.style.left = `${separacion}%`
+    }, 3000);
+}
+
+// Capturamos el click de la cuerda y ejecutamos todas las animaciones
+cuerdaTelon.addEventListener(
+    "click",
+    () => {
+        recogerCuerda();
+        animacionTelones(telonIzquierda, `movtelonizquierda`, -25);
+        animacionTelones(telonDerecha, `movtelonderecha`, 15);
+        apareceCuerda();
+        cuerdaInfinita();
+    }
+);
