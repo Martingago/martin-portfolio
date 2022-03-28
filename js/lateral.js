@@ -10,10 +10,14 @@ const letraInicio = document.querySelectorAll(".tittle-letter");
 function openClose() {
     mainMenu.classList.toggle("expanded");
     if(mainMenu.classList.contains("expanded")){
-        indicador.style.left = `250px`
+        indicador.style.left = `250px`;
     }else{
-        indicador.style.left = `55px`
+        indicador.style.left = `55px`;
     }
+
+    
+
+
     muteElements.classList.toggle("ismuted");
     document.querySelector("body").classList.toggle("expanded-body-content");
     if (muteElements.classList.contains("ismuted") && window.innerWidth < 1250) {
@@ -69,7 +73,7 @@ let indexsectionActiva
 
 const limpiar = () => {
     seccionesBtn.forEach(btn=>{
-        btn.style.backgroundColor="transparent"
+        btn.style.backgroundColor = `transparent`;
     });
 }
 
@@ -78,17 +82,16 @@ const observer = new IntersectionObserver((entradas, observer)=>{
     entradas.forEach( entrada=> {
         if(entrada.isIntersecting){
             limpiar();
-            indexsectionActiva = [...secciones].indexOf(entrada.target);
-                
+            indexsectionActiva = [...secciones].indexOf(entrada.target);  
             console.log(indexsectionActiva)
             indicador.style.transform = `translateY(${ 50 * indexsectionActiva}px)`;
             indicador.style.transition = `all .2s linear`;
-            seccionesBtn[indexsectionActiva].style.backgroundColor="red"
+            seccionesBtn[indexsectionActiva].style.backgroundColor = `rgba(200,200,200 ,1)`;
         }
     })
 },{
     rootMargin: `0px 0px 0px -50px`,
-    threshold: .7
+    threshold: .6
 })
 
 secciones.forEach(seccion => observer.observe(seccion))
