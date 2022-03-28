@@ -9,6 +9,11 @@ const letraInicio = document.querySelectorAll(".tittle-letter");
 
 function openClose() {
     mainMenu.classList.toggle("expanded");
+    if(mainMenu.classList.contains("expanded")){
+        indicador.style.left = `250px`
+    }else{
+        indicador.style.left = `55px`
+    }
     muteElements.classList.toggle("ismuted");
     document.querySelector("body").classList.toggle("expanded-body-content");
     if (muteElements.classList.contains("ismuted") && window.innerWidth < 1250) {
@@ -54,6 +59,39 @@ document.addEventListener(
             openClose();
         }
     });
+
+// INDICADOR DE POSICION DE LAS SECCIONES
+
+const  indicador = document.querySelector("#indicador");
+const secciones = document.querySelectorAll(".seccion");
+const seccionesBtn = document.querySelectorAll(".seccionbtn");
+let indexsectionActiva
+
+const limpiar = () => {
+    seccionesBtn.forEach(btn=>{
+        btn.style.backgroundColor="transparent"
+    });
+}
+
+
+const observer = new IntersectionObserver((entradas, observer)=>{
+    entradas.forEach( entrada=> {
+        if(entrada.isIntersecting){
+            limpiar();
+            indexsectionActiva = [...secciones].indexOf(entrada.target);
+                
+            console.log(indexsectionActiva)
+            indicador.style.transform = `translateY(${ 50 * indexsectionActiva}px)`;
+            indicador.style.transition = `all .2s linear`;
+            seccionesBtn[indexsectionActiva].style.backgroundColor="red"
+        }
+    })
+},{
+    rootMargin: `0px 0px 0px -50px`,
+    threshold: .7
+})
+
+secciones.forEach(seccion => observer.observe(seccion))
 
 //animacion de las letras del inicio
 
@@ -147,9 +185,9 @@ const apareceCuerda = () => {
 const abrirTelon = () => {
     setTimeout(() => {
         telonIzquierda.classList.add("abrir-telon-izquierda");
-        telonIzquierda.style.animation = `movtelonizquierda 3s linear`;
+        telonIzquierda.style.animation = `movtelonizquierda 1s linear`;
         telonDerecha.classList.add("abrir-telon-derecha");
-        telonDerecha.style.animation = `movtelonderecha 3s linear`;
+        telonDerecha.style.animation = `movtelonderecha 1s linear`;
     }, 3000);
 }
 
