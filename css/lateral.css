@@ -598,7 +598,11 @@ body{
     border: none;
     animation: launcheranimation 3s infinite;
     cursor: pointer;
+    outline: none;
 }
+    .telon-launcher:active{
+        outline: none;
+    }
 .telon-launcher img{
     width: calc(20px + 4vw);
     transition: all .4s linear;
@@ -702,7 +706,6 @@ body{
     70%{transform: translateY(-10px);}
     100%{transform: translateY(0);}
 }
-
 
 /* Progreso */
 
@@ -887,12 +890,74 @@ body{
             100%{transform: rotate(-54deg) scale(1.1);}  
         }
 
-.main-section-proyectos{
-    width: 100%;
-    height: 100vh;
-}
 
 .main-section-contacto{
     width: 100%;
     height: 100vh;
 }
+
+/* Seccion de proyectos */
+.main-section-proyectos{
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+}
+.grid-proyectos{
+        display: grid;
+        grid-template-columns: repeat(3, minmax(300px , 350px));
+        gap:20px;
+        margin: auto;
+        justify-content: center;
+        width: 80%;
+}
+.grid-proyectos h2{
+    grid-column: 1/ 4;
+    color: white;
+    margin: auto
+}
+
+.proyecto-elemento{
+    max-width: 350px;
+    min-width: 300px;
+    transition: all .3s linear;
+    background-color: rgba(55, 55, 55 , .6);
+    box-shadow: 2px 0 5px rgba(80, 78, 78, 0.6);
+}
+    .proyecto-elemento img{
+        width: 100%;
+        height: 262px;
+    }
+    .proyecto-elemento h3{
+        color: white;
+        margin: 10px 20px;
+    }
+    .proyecto-elemento .proyecto-date{
+        margin: 10px 20px;
+        color: lightgray
+    }
+    .proyecto-elemento .proyecto-description{
+        margin: 10px 20px;
+        color: lightgray;
+        display: none;
+    }
+    .proyecto-elemento button{
+        display: none;
+        margin: auto
+    }
+.proyecto-active{
+    transform: scale(1.2);
+    box-shadow: 0 0 10px 2px white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+    .proyecto-active img{
+        width: 100%;
+        object-fit: cover;
+    }
+    .proyecto-active .proyecto-description{
+        /* display: block; */
+    }
+    .proyecto-active button{
+        /* display: block; */
+    }

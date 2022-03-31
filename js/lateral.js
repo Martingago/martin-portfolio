@@ -171,27 +171,27 @@ const telonDerecha = document.querySelector(".telon-derecha");
 
     // SE ABRE EL TELON
 // Animacion de recogerse la cuerda (sólo al abrir el telón)
-const recogerCuerda = () => {
+const recogerCuerda = (temporizador) => {
     cuerdaTelon.style.animation = `launcherclickanimation 3s linear`;
     setTimeout(() => {
         cuerdaTelon.style.transform = `translateY(-100%)`
-    }, 3000);
+    }, temporizador);
 }
 //La cuerda cae desde arriba (sólo al abrir el telon)
-const apareceCuerda = () => {
+const apareceCuerda = (temporizador) => {
     setTimeout(() => {
         cuerdaTelon.style.animation = `launchertimeoutanimation 3s linear`;
         cuerdaTelon.style.transform = `translateY(0)`;
-    }, 7000);
+    }, temporizador);
 }
 // Animacion de abrir el telon
-const abrirTelon = () => {
+const abrirTelon = (temporizador) => {
     setTimeout(() => {
         telonIzquierda.classList.add("abrir-telon-izquierda");
-        telonIzquierda.style.animation = `movtelonizquierda 1s linear`;
+        telonIzquierda.style.animation = `movtelonizquierda 1.5s linear`;
         telonDerecha.classList.add("abrir-telon-derecha");
-        telonDerecha.style.animation = `movtelonderecha 1s linear`;
-    }, 3000);
+        telonDerecha.style.animation = `movtelonderecha 1.5s linear`;
+    }, temporizador);
 }
 
     //SE CIERRA EL TELON
@@ -200,13 +200,13 @@ const cerrarTelonCuerda = () => {
     cuerdaTelon.style.animation = `launchercloseanimation 3s linear`;
 }
 // Animacion cerrar el telon
-const cerrarTelon = () => {
+const cerrarTelon = (temporizador) => {
     setTimeout(() => {
         telonIzquierda.classList.remove("abrir-telon-izquierda");
-        telonIzquierda.style.animation = `cerrartelonizquierda 3s linear`;
+        telonIzquierda.style.animation = `cerrartelonizquierda 1.5s linear`;
         telonDerecha.classList.remove("abrir-telon-derecha");
-        telonDerecha.style.animation = `cerrartelonderecha 3s linear`;
-    }, 3000);
+        telonDerecha.style.animation = `cerrartelonderecha 1.5s linear`;
+    }, temporizador);
 }
 // Animacion infinita de la cuerda
 const cuerdaInfinita = (temporizador) => {
@@ -229,19 +229,39 @@ cuerdaTelon.addEventListener(
             cuerdaTelon.disabled = true
             console.log("el telon se cierra")
             cerrarTelonCuerda();
-            cerrarTelon();
-            cuerdaInfinita(7000);
-            habilitarClick(7500);
+            cerrarTelon(3000);
+            cuerdaInfinita(5000);
+            habilitarClick(5500);
             telonero++
         } else {
             cuerdaTelon.disabled = true
             console.log("el telon se abre")
-            recogerCuerda();
-            abrirTelon();
-            apareceCuerda();
-            cuerdaInfinita(10500);
-            habilitarClick(11000);
+            recogerCuerda(2000);
+            abrirTelon(3000);
+            apareceCuerda(5000);
+            cuerdaInfinita(8100);
+            habilitarClick(8500);
             telonero--
         }
     }
 );
+
+// Proyectos
+
+const proyecto = document.querySelectorAll(".proyecto-elemento");
+
+proyecto.forEach(proyecto => {
+    
+    proyecto.addEventListener(
+        "mouseenter",
+        ()=>{
+            proyecto.classList.add("proyecto-active")
+        }
+    )
+    proyecto.addEventListener(
+        "mouseleave",
+        ()=>{
+            proyecto.classList.remove("proyecto-active")
+        }
+    )
+});
