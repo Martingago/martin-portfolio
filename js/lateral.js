@@ -2,21 +2,18 @@
 // JS MENU LATERAL
 const mainMenu = document.querySelector(".menu-lateral");
 const btnMenu = document.querySelector(".btn-menu-lateral");
+const seccionesBtn = document.querySelectorAll(".seccionbtn")
 const bodyContent = document.querySelector("body")
 const muteElements = document.querySelector(".mute-content-element");
 const letraInicio = document.querySelectorAll(".tittle-letter");
 
-
 function openClose() {
     mainMenu.classList.toggle("expanded");
-    if(mainMenu.classList.contains("expanded")){
-        indicador.style.left = `250px`;
-    }else{
-        indicador.style.left = `55px`;
+    if (mainMenu.classList.contains("expanded")) {
+        indicador.style.width = `257px`;
+    } else {
+        indicador.style.width = `67px`;
     }
-
-    
-
 
     muteElements.classList.toggle("ismuted");
     document.querySelector("body").classList.toggle("expanded-body-content");
@@ -66,30 +63,26 @@ document.addEventListener(
 
 // INDICADOR DE POSICION DE LAS SECCIONES
 
-const  indicador = document.querySelector("#indicador");
+const indicador = document.querySelector("#indicador");
 const secciones = document.querySelectorAll(".seccion");
-const seccionesBtn = document.querySelectorAll(".seccionbtn");
 let indexsectionActiva
 
 const limpiar = () => {
-    seccionesBtn.forEach(btn=>{
+    seccionesBtn.forEach(btn => {
         btn.style.backgroundColor = `transparent`;
     });
 }
 
-
-const observer = new IntersectionObserver((entradas, observer)=>{
-    entradas.forEach( entrada=> {
-        if(entrada.isIntersecting){
+const observer = new IntersectionObserver((entradas, observer) => {
+    entradas.forEach(entrada => {
+        if (entrada.isIntersecting) {
             limpiar();
-            indexsectionActiva = [...secciones].indexOf(entrada.target);  
-            console.log(indexsectionActiva)
-            indicador.style.transform = `translateY(${ 50 * indexsectionActiva}px)`;
+            indexsectionActiva = [...secciones].indexOf(entrada.target);
+            indicador.style.transform = `translateY(${50 * indexsectionActiva}px)`;
             indicador.style.transition = `all .2s linear`;
-            seccionesBtn[indexsectionActiva].style.backgroundColor = `rgba(200,200,200 ,1)`;
         }
     })
-},{
+}, {
     rootMargin: `0px 0px 0px -50px`,
     threshold: .6
 })
@@ -169,7 +162,7 @@ const cuerdaTelon = document.querySelector(".telon-launcher");
 const telonIzquierda = document.querySelector(".telon-izquierda");
 const telonDerecha = document.querySelector(".telon-derecha");
 
-    // SE ABRE EL TELON
+// SE ABRE EL TELON
 // Animacion de recogerse la cuerda (sólo al abrir el telón)
 const recogerCuerda = (temporizador) => {
     cuerdaTelon.style.animation = `launcherclickanimation 3s linear`;
@@ -194,7 +187,7 @@ const abrirTelon = (temporizador) => {
     }, temporizador);
 }
 
-    //SE CIERRA EL TELON
+//SE CIERRA EL TELON
 // Animacion tirar de la cuerda (al cerrar telon)
 const cerrarTelonCuerda = () => {
     cuerdaTelon.style.animation = `launchercloseanimation 3s linear`;
@@ -251,16 +244,16 @@ cuerdaTelon.addEventListener(
 const proyecto = document.querySelectorAll(".proyecto-elemento");
 
 proyecto.forEach(proyecto => {
-    
+
     proyecto.addEventListener(
         "mouseenter",
-        ()=>{
+        () => {
             proyecto.classList.add("proyecto-active")
         }
     )
     proyecto.addEventListener(
         "mouseleave",
-        ()=>{
+        () => {
             proyecto.classList.remove("proyecto-active")
         }
     )
