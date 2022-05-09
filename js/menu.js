@@ -9,19 +9,15 @@ const muteElements = document.querySelector(".mute-content-element");
 //abre y cierra el menu
 
 let openClose = () => {
-    mainMenu.classList.toggle("expanded");
-    if (mainMenu.classList.contains("expanded")) {
-        indicador.style.width = `257px`;
-    } else {
-        indicador.style.width = `67px`;
-    }
+    mainMenu.classList.toggle("expanded") ? indicador.style.width = '257px' : indicador.style.width = `67px` ;
+
     muteElements.classList.toggle("ismuted");
-    document.querySelector("body").classList.toggle("expanded-body-content");
-    if (muteElements.classList.contains("ismuted") && window.innerWidth < 1250) {
-        bodyContent.style.overflowY = `hidden`;
-    } else {
-        bodyContent.style.overflowY = `scroll`;
-    }
+    // document.querySelector("body").classList.toggle("expanded-body-content");
+    // if (muteElements.classList.contains("ismuted") && window.innerWidth < 1250) {
+    //     bodyContent.style.overflowY = `hidden`;
+    // } else {
+    //     bodyContent.style.overflowY = `scroll`;
+    // }
 }
 
 //Ajusta tamaño de las letras del inicio si el menu lateral está desplegado

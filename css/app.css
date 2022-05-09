@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+}
+ul, li , a{
+    text-decoration: none;
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+:root{
+    --menubackground: rgba(160, 160, 160);
+    --sizeboxmenu: 55px;
+    --expandedsizeboxmenu: 250px;
+    --transitionmenu: all 200ms ease-out;
+    --fontweb: clamp(1rem, 3vw, 1.8rem);
+    --tittleweb: clamp(1.7rem, 5vw, 2.5rem);
+    --maincolor: rgba(40, 35, 35, 1.00);
+}
+body{
+    margin:0;
+    padding:0;
+    padding-top: var(--sizeboxmenu);
+    background-color: var(--maincolor);
+}
